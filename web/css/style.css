@@ -1,0 +1,52 @@
+/* CSS Document */
+body {
+    background-color: #2c992d !important;
+    text-align:center;
+}
+
+html {
+    background-color: #2c992d;
+}
+
+p, span {
+    margin:0;
+    padding:0; }
+
+/*input { font:12px arial; }*/
+
+/*a {
+    color:#0000FF;
+    text-decoration:none; }*/
+
+a:hover { text-decoration:underline; }
+
+#chatbox {
+    text-align:left;
+    background:#fff;
+    height:300px;
+    width:100%;
+    overflow:hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/*#usermsg {
+    width:395px;
+    border:1px solid #ACD8F0; }*/
+
+/*#submit { width: 60px; }*/
+
+.error { color: #ff0000; }
+
+
+.welcome {
+    float:left;
+    margin-top:15px;
+}
+
+.logout {
+    float:right;
+    margin-top:10px;
+}
+
+.msgln { margin:0 0 2px 0; }
