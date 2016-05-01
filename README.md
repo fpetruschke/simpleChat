@@ -20,8 +20,11 @@ It's ugly coding and not safe for work productive - be aware of that.
 1. session will be destroyed
 
 ## Deployment
-Just download the zip file and extract it in your webserver root. Then call the index.php - like: `localhost/simpleChat/index.php`.
-For trying functionality you could open the url in two different browsers on your machine.  
-You could also put it on a remote server - e.g. a RaspPi - in your home network , making it accessible for roommates, friends and family.
+Just download the zip file and extract it in your webserver root.  
+Create an empty "log.html" with read and write permission inside the `log/` folder.  
+Then call the index.php - like: `localhost/simpleChat/index.php`.  
+
+For trying functionality you could open the url in two different browsers on your machine.    
+You could also put it on a remote server - e.g. a RaspPi - in your home network , making it accessible for roommates, friends and family.  
 
 Enjoy **simpleChat**
