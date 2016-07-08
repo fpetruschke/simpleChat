@@ -55,7 +55,7 @@
                 $('#aboutContent').hide();
 
                 <?php
-                    if($_POST['name'] != ""){
+                    if(array_key_exists('name', $_POST) && $_POST['name'] == ''){
                 ?>
                         $('#loginForm').show();
                 <?php } else {

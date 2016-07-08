@@ -45,8 +45,6 @@
         <div style="clear:both"></div>
     </div>
 
-
-
 </div>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
@@ -54,7 +52,7 @@
     //Load the file containing the chat log
     window.setInterval( function() {
         loadLog();
-    }, 500);
+    }, 300);
 
     function loadLog(){
         $.ajax({
@@ -62,7 +60,9 @@
             url: "log/log.html",
             cache: false,
             success: function(data){
-                $("#chatbox").html(data); //Insert chat log into the #chatbox div
+                $('#chatbox').html(data);
+                //$('#chatbox').innerHTML += data;
+                //$("#chatbox").html(data); //Insert chat log into the #chatbox div
                 //Auto-scroll
                 var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height after the request
                 if(newscrollHeight > 0){
@@ -70,7 +70,8 @@
                 }
             },
             error: function(data){
-                alert(data);
+                alert("FEHLER!");
+                console.log(data);
             }
         });
     }
@@ -78,6 +79,23 @@
     //If user submits the form
     $("#submitmsg").click(function(){
         var clientmsg = $("#usermsg").val();
+
+        //var emoticons = (';-)', ':-D',':-G');
+
+        var dimension='';//width="25" height="25"';
+
+        if(clientmsg.indexOf(';-)') > -1) {
+            clientmsg = clientmsg.replace(/;-\)/, '<img src="web/img/emoticons/alc.gif"'+dimension+'>');
+        }
+        if(clientmsg.indexOf(':-D') > -1) {
+            clientmsg = clientmsg.replace(/:-D/, '<img src="web/img/emoticons/bayer.gif"'+dimension+'>');
+        }
+        if(clientmsg.indexOf(':-G') > -1) {
+            clientmsg = clientmsg.replace(/:-G/, '<img src="web/img/emoticons/puke.gif"'+dimension+'>');
+        }
+        if(clientmsg.indexOf('O.O') > -1) {
+            clientmsg = clientmsg.replace(/O\.O/, '<img src="web/img/emoticons/noway.gif"'+dimension+'>');
+        }
 
         $.post("post.php", {text: clientmsg});
         $("#usermsg").attr("value", "");
