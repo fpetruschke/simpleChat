@@ -5,7 +5,7 @@ It's ugly coding and not safe for work productive - be aware of that.
 
 ## Requirements
 * have a webserver running
-* have read and write permissions in project dir
+* have read and write permissions in project dir **especially** log/log.htwl
 
 ## included libraries
 * jquery 1.9.1
@@ -15,7 +15,7 @@ It's ugly coding and not safe for work productive - be aware of that.
 1. user has to log in with a nickname
 1. this name is used for posting ajax requests inside a session
 1. posted messages will be stored inside the "log/log.html"
-1. "log/log.html" will be read every 500ms and show content in chatbox
+1. "log/log.html" will be read every few ms and show content in chatbox
 1. logged in user can exit chat with clicking "exit" button
 1. session will be destroyed
 

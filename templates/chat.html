@@ -1,17 +1,17 @@
 <div id="wrap" style="margin-top: 100px">
     <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8" style="background-color: #F3F2F1;">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10" style="background-color: #F3F2F1;">
             <p class="welcome">Welcome, <b><?php echo $_SESSION['name']; ?></b></p>
             <p class="logout">
                 <button type="submit" class="btn btn-md btn-default" name="exit" id="exit" value="Enter">Exit</button>
             </p>
         </div>
-        <div class="col-lg-2"></div>
+        <div class="col-xs-1"></div>
     </div>
     <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8" style="padding: 0px;">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10" style="padding: 0px;">
             <div id="chatbox">
                 <?php
                     if(file_exists("log/log.html") && filesize("log/log.html") > 0){
@@ -23,12 +23,12 @@
                 ?>
             </div>
         </div>
-        <div class="col-lg-2"></div>
+        <div class="col-xs-1"></div>
     </div>
 
     <div class="row" id="showEmoticonsDialog">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8" style="background-color: #F3F2F1;">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10" style="background-color: #F3F2F1;">
             <div class="row">
                 <button name="chooseEmoticon" class="btn btn-md btn-default" id=":+1:">
                     <img src="web/img/emoticons/thumpup.gif">
@@ -73,27 +73,33 @@
                     <img src="web/img/emoticons/veryangry.gif">
                 </button>
             </div>
-            <div class="col-lg-2"></div>
+            <div class="col-xs-1"></div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8" style="background-color: #F3F2F1;">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10" style="background-color: #F3F2F1;">
             <div class="row">
-                <div class="col-lg-1">
+                <div class="col-xs-1">
                     <button name="showEmoticons" class="btn btn-md btn-default" id="showEmoticons">
                         <img src="web/img/emoticons/smile.GIF">
                     </button>
                 </div>
-                <div class="col-lg-11">
-                    <form name="message" action="">
-                        <input name="usermsg" type="text" id="usermsg" style="width: 90%;" />
-                        <input name="submitmsg" type="submit" class="btn btn-md btn-default" style="width:9%" id="submitmsg" value="Send" />
-                    </form>
+                <div class="col-xs-11">
+                    <div class="row">
+                        <form name="message" action="">
+                            <div class="col-xs-10">
+                                <input name="usermsg" type="text" id="usermsg" style="width: 100%"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <input name="submitmsg" type="submit" class="btn btn-md btn-default" id="submitmsg" value="Send" />
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        <div class="col-lg-2"></div>
+        <div class="col-xs-1"></div>
         </div>
     </div>
 </div>
@@ -125,7 +131,12 @@
     //Load the file containing the chat log
     window.setInterval( function() {
         loadLog();
-    }, 300);
+    }, 500);
+
+    var userScrolls = false;
+    /*$('#chatbox').scroll(function () {
+       userScrolls = true;
+    })*/
 
     function loadLog(){
         $.ajax({
@@ -135,13 +146,14 @@
             success: function(data){
                 $('#chatbox').html(data);
                 //Auto-scroll
-                var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height after the request
-                if(newscrollHeight > 0){
-                    $("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div
+                if(!userScrolls) {
+                    var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height after the request
+                    if(newscrollHeight > 0){
+                        $("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div
+                    }
                 }
             },
             error: function(data){
-                alert("FEHLER!");
                 console.log(data);
             }
         });

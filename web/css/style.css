@@ -14,11 +14,15 @@ p, span {
 a:hover { text-decoration:underline; }
 
 #chatbox {
+    width: 100%;
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: scroll;
     text-align:left;
     background:#fff;
-    height:300px;
-    width:100%;
-    overflow:hidden;
+    /*height:300px;
+    width:400px;
+    overflow:scroll;*/
     padding-left: 10px;
     padding-right: 10px;
 }

@@ -23,13 +23,13 @@
 
         <div id="aboutContent" style="margin-top: 100px">
             <div class="row">
-                <div class="col-lg-3"></div>
-                <div class="col-lg-6" style="background-color: #F3F2F1;"><h1>simpleChat</h1></div>
-                <div class="col-lg-3"></div>
+                <div class="col-xs-3"></div>
+                <div class="col-xs-6" style="background-color: #F3F2F1;"><h1>simpleChat</h1></div>
+                <div class="col-xs-3"></div>
             </div>
             <div class="row">
-                <div class="col-lg-3"></div>
-                <div class="col-lg-6" style="background-color: white; padding-top: 10px; text-align: justify">
+                <div class="col-xs-3"></div>
+                <div class="col-xs-6" style="background-color: white; padding-top: 10px; text-align: justify">
                     <p>
                         <strong>simpleChat</strong> is a tiny php/html/js web application.<br>
                         It is just meant for playing around with ajax-request and a simple session-login-functionality.<br>
@@ -39,7 +39,7 @@
                     </p>
                     <p>Have fun with <strong>simpleChat</strong></p>
                 </div>
-                <div class="col-lg-3"></div>
+                <div class="col-xs-3"></div>
             </div>
         </div>
 
